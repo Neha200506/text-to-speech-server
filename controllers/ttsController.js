@@ -37,11 +37,25 @@ export const testTTS = async (req, res) => {
       data: speechData,
     });
   } catch (error) {
-    console.error("TTS service error:", error);
+    let errorMessage = error.message || "Failed to process TTS request.";
+
+    if (error.response?.data) {
+      const errorData = error.response.data;
+
+      if (Buffer.isBuffer(errorData)) {
+        errorMessage = errorData.toString("utf8");
+      } else if (typeof errorData === "object") {
+        errorMessage = errorData.message || errorData.error?.message || JSON.stringify(errorData);
+      } else {
+        errorMessage = String(errorData);
+      }
+    }
+
+    console.error("TTS error:", errorMessage);
 
     return res.status(500).json({
       success: false,
-      message: "Failed to process TTS request.",
+      message: errorMessage,
     });
   }
 };
