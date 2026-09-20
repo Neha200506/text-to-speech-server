@@ -19,6 +19,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://text-to-speech-client-dun.vercel.app",
+      "https://text-to-speech-client-pwvlzh5ii-labmentix-cloud-drive.vercel.app",
     ],
     credentials: true,
   })
