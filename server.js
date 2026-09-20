@@ -18,7 +18,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://text-to-speech-client-pvwlzh5ii-labmentix-cloud-drive.vercel.app",
+      "https://text-to-speech-client-dun.vercel.app",
     ],
     credentials: true,
   })
