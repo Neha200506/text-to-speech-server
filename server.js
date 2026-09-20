@@ -16,7 +16,10 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(
   cors({
-    origin: "https://text-to-speech-client-pvwlzh5ii-labmentix-cloud-drive.vercel.app",
+    origin: [
+      "http://localhost:5173",
+      "https://text-to-speech-client-pvwlzh5ii-labmentix-cloud-drive.vercel.app",
+    ],
     credentials: true,
   })
 );
